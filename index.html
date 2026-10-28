@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="GameHub : guides, astuces et conseils gaming pour progresser dans tes jeux préférés.">
+<title>GameHub — Guides gaming</title>
+<style>
+:root{--bg:#071020;--panel:#0d1a31;--panel2:#10213d;--line:#243b62;--text:#f3f6ff;--muted:#a9bbdc;--blue:#4e8cff;--purple:#8758ff;--cyan:#5ee7f5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#172b55 0,transparent 42%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
+a{color:inherit}.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#071020ed;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.nav{display:flex;align-items:center;gap:22px;min-height:68px;flex-wrap:wrap;padding:10px 0}.brand{font-weight:900;font-size:1.35rem;letter-spacing:-.04em;text-decoration:none}.brand span{color:var(--cyan)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;font-size:.94rem}nav a:hover{color:white}.navsearch{margin-left:auto}
+input,select{background:#10213d;border:1px solid #31476e;color:white;border-radius:12px;padding:12px 14px;font:inherit;outline:none}input:focus,select:focus{border-color:var(--cyan)}.navsearch input{width:min(300px,78vw)}
+.hero{padding:56px 0 42px;background:linear-gradient(100deg,#09142a 0%,#0c1b36 65%,#13285a 100%);border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:800}.hero h1{font-size:clamp(2.1rem,5vw,3.7rem);line-height:1.08;letter-spacing:-.045em;max-width:760px;margin:12px 0}.gradient{background:linear-gradient(90deg,#9b7bff,#54d7ff);color:transparent;background-clip:text}.hero p{max-width:680px;color:var(--muted);font-size:1.05rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 17px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:white;text-decoration:none;font-weight:750;cursor:pointer}.btn.primary{background:linear-gradient(100deg,var(--purple),var(--blue));border:0}.notice{margin-top:22px;color:#cfdbf4;font-size:.88rem;border-left:3px solid var(--cyan);padding:8px 12px;background:#0b1a32a8;max-width:750px}
+main{padding:32px 0 56px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:15px;flex-wrap:wrap;margin-bottom:18px}.sectionhead h2{margin:0;font-size:1.5rem;letter-spacing:-.025em}.sectionhead p{margin:4px 0 0;color:var(--muted)}.controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 22px}.controls input{flex:1;min-width:220px}.controls select{min-width:160px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 28px}.pill{border:1px solid var(--line);background:#0c1930;padding:7px 11px;border-radius:999px;color:#c6d5f2;font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:linear-gradient(160deg,#10213d,#0b172c);border:1px solid var(--line);border-radius:17px;overflow:hidden;display:flex;flex-direction:column;min-height:220px;transition:transform .18s,border-color .18s}.card:hover{transform:translateY(-3px);border-color:#6585c5}.cardtop{display:flex;align-items:center;gap:13px;padding:16px 15px 9px}.gameicon{width:52px;height:52px;display:grid;place-items:center;font-size:1.8rem;border-radius:14px;background:linear-gradient(145deg,#243d70,#192747);flex-shrink:0}.card h3{margin:0;font-size:1.03rem}.tag{font-size:.76rem;color:var(--cyan)}.card p{color:var(--muted);font-size:.9rem;margin:4px 15px 15px;flex:1}.card button{margin:0 15px 15px;text-align:left}
+.featured{margin:36px 0 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(110deg,#111f3a,#0c1930)}.featured h2{margin:0 0 8px}.featured p{color:var(--muted);margin-top:0}.guidegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.guide{padding:15px;background:#08152a;border:1px solid var(--line);border-radius:13px}.guide h3{margin:0 0 7px;font-size:1rem}.guide p{font-size:.9rem;margin:0 0 10px}.guide small{color:var(--cyan)}
+footer{border-top:1px solid var(--line);padding:25px 0 35px;color:var(--muted);font-size:.88rem}footer .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.empty{padding:30px;text-align:center;border:1px dashed var(--line);border-radius:15px;color:var(--muted);grid-column:1/-1}
+dialog{width:min(680px,92vw);border:1px solid #38517c;border-radius:18px;background:#0b1830;color:var(--text);padding:0;box-shadow:0 20px 80px #0009}dialog::backdrop{background:#020612c9;backdrop-filter:blur(4px)}.modalhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 20px;border-bottom:1px solid var(--line)}.modalhead h2{margin:0}.modalbody{padding:20px}.modalbody p,.modalbody li{color:#c1d0eb}.close{background:#192a48;border:1px solid var(--line);color:white;border-radius:10px;padding:7px 11px;cursor:pointer;font:inherit}.disclaimer{font-size:.82rem;color:var(--muted);margin-top:24px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.guidegrid{grid-template-columns:repeat(2,1fr)}.navsearch{margin-left:0}}
+@media(max-width:650px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cardtop{align-items:flex-start;gap:9px;padding:12px 10px 7px}.gameicon{width:42px;height:42px;font-size:1.45rem}.card h3{font-size:.92rem}.card p{margin:3px 10px 12px;font-size:.84rem}.card button{margin:0 10px 12px;padding:9px;font-size:.85rem}.guidegrid{grid-template-columns:1fr}.hero{padding:40px 0 32px}.nav{gap:12px}.navsearch{width:100%}.navsearch input{width:100%}nav{gap:12px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#" aria-label="GameHub accueil">🎮 Game<span>Hub</span></a>
+<nav aria-label="Navigation"><a href="#jeux">Jeux</a><a href="#guides">Guides</a><a href="#apropos">À propos</a></nav>
+<div class="navsearch"><input id="searchTop" type="search" placeholder="Rechercher un jeu ou un guide…" aria-label="Rechercher un jeu ou un guide"></div>
+</div></header>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Le coin des joueurs</div>
+<h1>Progresse dans tes jeux.<br><span class="gradient">Un guide à la fois.</span></h1>
+<p>Des guides simples, des astuces et des explications pour découvrir tes jeux préférés. Un projet indépendant créé pour les joueurs, par passion.</p>
+<div class="actions"><a class="btn primary" href="#jeux">Explorer les jeux <span aria-hidden="true">→</span></a><a class="btn" href="#guides">Voir les guides</a></div>
+<div class="notice">🚧 Site en lancement : les fiches de jeux sont prêtes, les guides seront ajoutés et vérifiés progressivement.</div>
+</div></section>
+<main class="wrap">
+<section id="jeux">
+<div class="sectionhead"><div><h2>🕹️ Explorer les jeux</h2><p>Choisis un jeu pour afficher sa fiche et les idées de guides.</p></div><span class="pill" id="count">24 jeux</span></div>
+<div class="controls"><input id="searchMain" type="search" placeholder="Ex. Minecraft, course, construction…" aria-label="Rechercher parmi les jeux"><select id="category" aria-label="Filtrer par catégorie"><option value="all">Toutes les catégories</option><option>Sandbox</option><option>Battle royale</option><option>Action / aventure</option><option>FPS / tactique</option><option>Sport / course</option><option>RPG</option><option>Stratégie</option><option>Plateforme / famille</option></select></div>
+<div class="grid" id="gameGrid"></div>
+</section>
+<section class="featured" id="guides">
+<h2>⭐ Guides à préparer en priorité</h2><p>Ces idées sont un point de départ. Avant publication, vérifie les détails et ajoute tes propres explications ou captures autorisées.</p>
+<div class="guidegrid">
+<article class="guide"><h3>⛏️ Bien débuter dans Minecraft</h3><p>Les premières étapes, les ressources à récolter et comment organiser son premier abri.</p><small>Débutant · 5–7 min</small></article>
+<article class="guide"><h3>🎯 Améliorer sa visée dans Fortnite</h3><p>Comprendre la sensibilité, s'entraîner régulièrement et choisir des réglages confortables.</p><small>Conseils généraux · 4–6 min</small></article>
+<article class="guide"><h3>🚗 Progresser dans Rocket League</h3><p>Les bases du contrôle, du positionnement et du jeu en équipe avant les mécaniques avancées.</p><small>Débutant · 5 min</small></article>
+</div>
+</section>
+<section class="featured" id="apropos">
+<h2>À propos de GameHub</h2><p>GameHub est un projet indépendant de guides gaming en français. Il n'est affilié à aucun éditeur de jeux. Les noms de jeux appartiennent à leurs propriétaires respectifs.</p>
+<p class="disclaimer">Conseil sécurité : ne partage jamais ton adresse, ton numéro, ton mot de passe ou des informations de paiement sur le site. Cette version ne collecte aucune donnée et ne contient ni compte utilisateur, ni publicité, ni paiement.</p>
+</section>
+</main>
+<footer><div class="wrap foot"><div><strong>🎮 GameHub</strong><br>Des guides clairs pour jouer et progresser.</div><div>Projet personnel · Version de démonstration<br>© GameHub — contenu à compléter et vérifier.</div></div></footer>
+<dialog id="gameDialog"><div class="modalhead"><h2 id="modalTitle">Fiche jeu</h2><button class="close" id="closeDialog" aria-label="Fermer">✕</button></div><div class="modalbody" id="modalBody"></div></dialog>
+<script>
+const games = [
+{name:"Minecraft",icon:"⛏️",category:"Sandbox",desc:"Survie, construction, exploration et créativité.",ideas:["Les premières nuits en mode survie","Trouver et gérer ses ressources","Construire un abri simple"]},
+{name:"Fortnite",icon:"🎯",category:"Battle royale",desc:"Battle royale, modes créatifs et jeu en équipe.",ideas:["Comprendre la carte et la zone","Réglages et entraînement accessibles","Conseils pour jouer en équipe"]},
+{name:"Grand Theft Auto V",icon:"🚘",category:"Action / aventure",desc:"Un monde ouvert riche en missions et activités.",ideas:["Découvrir les commandes et activités","Conseils pour explorer le mode histoire","Rester prudent dans les échanges en ligne"]},
+{name:"Valorant",icon:"🔻",category:"FPS / tactique",desc:"Tir tactique en équipe et agents aux capacités différentes.",ideas:["Comprendre les rôles des agents","Communication utile en équipe","Bases du placement et de la visée"]},
+{name:"Rocket League",icon:"🚗",category:"Sport / course",desc:"Football en voiture, mécanique et stratégie d'équipe.",ideas:["Les bases du contrôle de la voiture","Bien se positionner en 2v2","Entraînements pour débutants"]},
+{name:"Roblox",icon:"🧱",category:"Plateforme / famille",desc:"Une plateforme de jeux et d'expériences créés par la communauté.",ideas:["Trouver des expériences adaptées","Régler les paramètres de confidentialité","Reconnaître les arnaques courantes"]},
+{name:"Call of Duty",icon:"🎖️",category:"FPS / tactique",desc:"Action à la première personne et modes multijoueurs.",ideas:["Comprendre les modes de jeu","Choisir une configuration confortable","Jouer en équipe et communiquer"]},
+{name:"The Legend of Zelda",icon:"🗡️",category:"Action / aventure",desc:"Exploration, énigmes, aventures et découvertes.",ideas:["Organiser son exploration","Résoudre les énigmes méthodiquement","Gérer son inventaire"]},
+{name:"Pokémon",icon:"⚡",category:"RPG",desc:"Collection, stratégie, exploration et combats.",ideas:["Comprendre les types et leurs avantages","Construire une équipe équilibrée","Conseils pour organiser sa collection"]},
+{name:"Genshin Impact",icon:"✨",category:"RPG",desc:"RPG d'action, exploration et personnages à développer.",ideas:["Bien débuter l'exploration","Comprendre les rôles d'équipe","Gérer les ressources du jeu"]},
+{name:"League of Legends",icon:"🛡️",category:"Stratégie",desc:"MOBA en équipe basé sur les objectifs et la stratégie.",ideas:["Comprendre les rôles et les voies","Regarder la mini-carte régulièrement","Apprendre les objectifs de la partie"]},
+{name:"Overwatch 2",icon:"🦸",category:"FPS / tactique",desc:"Jeu de tir en équipe avec des héros aux rôles variés.",ideas:["Découvrir les rôles des héros","Rester groupé avec son équipe","Comprendre les objectifs"]},
+{name:"Apex Legends",icon:"🪂",category:"Battle royale",desc:"Battle royale en escouade avec personnages et mobilité.",ideas:["Choisir une légende pour débuter","Bien communiquer en escouade","Gérer le déplacement et le placement"]},
+{name:"EA Sports FC",icon:"⚽",category:"Sport / course",desc:"Football virtuel, tactique et modes compétitifs.",ideas:["Comprendre les commandes essentielles","Défendre sans se précipiter","Construire une tactique simple"]},
+{name:"The Sims 4",icon:"🏡",category:"Sandbox",desc:"Simulation de vie, construction et histoires personnalisées.",ideas:["Créer son premier foyer","Construire une maison fonctionnelle","Organiser le quotidien des Sims"]},
+{name:"Stardew Valley",icon:"🌱",category:"RPG",desc:"Ferme, artisanat, relations et exploration paisible.",ideas:["Planifier sa première saison","Choisir quoi planter","Gérer son énergie et son temps"]},
+{name:"Terraria",icon:"⛏️",category:"Sandbox",desc:"Exploration, construction, artisanat et aventure en 2D.",ideas:["Préparer sa première base","Explorer sans se perdre","Organiser son équipement"]},
+{name:"Among Us",icon:"🛰️",category:"Stratégie",desc:"Déduction sociale, missions et observation.",ideas:["Conseils pour observer les comportements","Comprendre les tâches","Jouer sans accuser au hasard"]},
+{name:"Fall Guys",icon:"🍬",category:"Plateforme / famille",desc:"Parcours colorés, obstacles et défis multijoueurs.",ideas:["Apprendre à gérer les sauts","Repérer les raccourcis sûrs","Garder son calme en finale"]},
+{name:"Hogwarts Legacy",icon:"🪄",category:"RPG",desc:"Aventure fantastique, exploration et magie.",ideas:["Organiser ses quêtes","Explorer et trouver des objets","Comprendre les équipements"]},
+{name:"Elden Ring",icon:"🐉",category:"RPG",desc:"Action-RPG exigeant, exploration et combats.",ideas:["Apprendre les bases du combat","Quand explorer une autre zone","Comprendre les statistiques simplement"]},
+{name:"Forza Horizon",icon:"🏎️",category:"Sport / course",desc:"Course automobile en monde ouvert.",ideas:["Trouver les réglages de conduite adaptés","Gérer les virages","Découvrir les types d'épreuves"]},
+{name:"Super Mario",icon:"🍄",category:"Plateforme / famille",desc:"Plateforme, précision, secrets et aventures colorées.",ideas:["Maîtriser les sauts","Explorer les niveaux","Trouver les secrets sans se presser"]},
+{name:"Animal Crossing",icon:"🍃",category:"Plateforme / famille",desc:"Vie insulaire, décoration, collection et activités quotidiennes.",ideas:["Organiser son île au départ","Gérer ses clochettes","Aménager des espaces pratiques"]}
+];
+const grid=document.getElementById("gameGrid"), searchMain=document.getElementById("searchMain"), searchTop=document.getElementById("searchTop"), category=document.getElementById("category"), count=document.getElementById("count"), dialog=document.getElementById("gameDialog");
+function render(){
+ const q=(searchMain.value||searchTop.value).trim().toLocaleLowerCase('fr');
+ const cat=category.value;
+ const shown=games.filter(g=>(cat==="all"||g.category===cat)&&(!q||(g.name+" "+g.category+" "+g.desc+" "+g.ideas.join(" ")).toLocaleLowerCase('fr').includes(q)));
+ count.textContent=shown.length+" jeu"+(shown.length>1?"x":"");
+ grid.innerHTML="";
+ if(!shown.length){grid.innerHTML='<div class="empty">Aucun résultat. Essaie un autre mot ou une autre catégorie.</div>';return;}
+ shown.forEach(g=>{
+  const card=document.createElement("article");card.className="card";
+  card.innerHTML=`<div class="cardtop"><div class="gameicon" aria-hidden="true">${g.icon}</div><div><h3></h3><div class="tag"></div></div></div><p></p><button class="btn">Voir les idées de guides →</button>`;
+  card.querySelector("h3").textContent=g.name;card.querySelector(".tag").textContent=g.category;card.querySelector("p").textContent=g.desc;
+  card.querySelector("button").addEventListener("click",()=>openGame(g));grid.appendChild(card);
+ });
+}
+function openGame(g){
+ document.getElementById("modalTitle").textContent=g.icon+" "+g.name;
+ const body=document.getElementById("modalBody");
+ body.innerHTML="";
+ const p=document.createElement("p");p.textContent=g.desc;body.appendChild(p);
+ const h=document.createElement("h3");h.textContent="Idées de guides à rédiger";body.appendChild(h);
+ const ul=document.createElement("ul");g.ideas.forEach(idea=>{const li=document.createElement("li");li.textContent=idea;ul.appendChild(li)});body.appendChild(ul);
+ const note=document.createElement("p");note.textContent="Astuce éditoriale : teste les conseils toi-même, écris avec tes propres mots et vérifie les informations avant publication.";body.appendChild(note);
+ if(typeof dialog.showModal==="function")dialog.showModal();else alert(g.name+" — "+g.ideas.join("; "));
+}
+searchMain.addEventListener("input",()=>{searchTop.value=searchMain.value;render()});
+searchTop.addEventListener("input",()=>{searchMain.value=searchTop.value;render();document.getElementById("jeux").scrollIntoView({behavior:"smooth",block:"start"})});
+category.addEventListener("change",render);
+document.getElementById("closeDialog").addEventListener("click",()=>dialog.close());
+dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
+render();
+</script>
+</body>
+</html>
